@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Popover API</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <h1>Mi Dashboard</h1>
+        <div class="actions">
+            <button popovertarget="user-menu" class="btn-nav">
+                Perfil 🔽
+            </button>
+
+            <button popovertarget="toast-notifications" class="btn-nav btn-alert">
+                Alertas 🔔
+            </button>
+        </div>
+    </nav>
+
+    <main>
+        <p>El contenido principal de la página está aquí. Observa cómo el comportamiento cambia entre los dos popovers.</p>
+        <div class="card">
+            <h2>Prueba de Contexto</h2>
+            <p>Intenta abrir las "Alertas" y luego interactuar con este texto. Verás que puedes seleccionarlo.</p>
+            <p>Luego abre "Perfil" y verás que las alertas no se cierran (porque son manuales), pero si haces clic aquí fuera, el perfil sí se cierra.</p>
+        </div>
+    </main>
+
+    <div id="user-menu" popover="auto" class="popover-menu">
+        <h3>Usuario Demo</h3>
+        <ul>
+            <li><a href="#">Configuración</a></li>
+            <li><a href="#">Cerrar Sesión</a></li>
+        </ul>
+        </div>
+
+    <div id="toast-notifications" popover="manual" class="popover-toast">
+        <div class="toast-header">
+            <strong>Notificaciones del Sistema</strong>
+            <button popovertarget="toast-notifications" popovertargetaction="hide" class="close-btn">
+                ✖
+            </button>
+        </div>
+        <div class="toast-body">
+            <p>⚠️ Mantenimiento programado en 10 min.</p>
+            <p>✅ Copia de seguridad completada.</p>
+        </div>
+    </div>
+
+</body>
+</html>
