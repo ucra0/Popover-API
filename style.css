@@ -1,0 +1,129 @@
+body {
+    font-family: system-ui, sans-serif;
+    margin: 0;
+    background-color: #f4f4f9;
+}
+
+.navbar {
+    background: #2c3e50;
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-nav {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    background: #34495e;
+    color: white;
+    border: 1px solid #bdc3c7;
+    border-radius: 4px;
+}
+
+main {
+    padding: 2rem;
+}
+
+.card {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    max-width: 600px;
+}
+
+/* --- ESTILOS DE LA NOVEDAD (POPOVER) --- */
+
+/* 1. Estilos para el Popover Automático (Menú) */
+#user-menu {
+    /* Posicionamiento: El navegador lo centra por defecto, pero podemos moverlo */
+    margin: 0;
+    top: 60px; /* Ajuste manual simple */
+    right: 20px; /* Pegado a la derecha */
+    left: auto; /* Anular el centrado horizontal por defecto */
+    
+    border: none;
+    border-radius: 8px;
+    padding: 0;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    min-width: 200px;
+    
+    /* Animación de entrada nativa */
+    transition: opacity 0.2s, transform 0.2s;
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+/* Pseudo-clase :popover-open detecta cuando está abierto */
+#user-menu:popover-open {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#user-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#user-menu li a {
+    display: block;
+    padding: 1rem;
+    text-decoration: none;
+    color: #333;
+    border-bottom: 1px solid #eee;
+}
+
+#user-menu li a:hover {
+    background-color: #f0f0f0;
+}
+
+/* 2. Estilos para el Popover Manual (Toast/Notificación) */
+#toast-notifications {
+    /* Posicionamiento fijo en la esquina inferior derecha */
+    position: fixed;
+    inset: auto; /* Resetea top/left/right/bottom por defecto */
+    bottom: 20px;
+    right: 20px;
+    margin: 0;
+    
+    border: none;
+    background: #fff;
+    border-left: 5px solid #e74c3c;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    padding: 0;
+    width: 300px;
+}
+
+/* BACKDROP: El fondo oscuro detrás del popover */
+/* Solo aplicamos backdrop al menú automático para enfocar la atención */
+#user-menu::backdrop {
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(2px);
+}
+
+/* El manual no tendrá backdrop para permitir interactuar con el fondo */
+#toast-notifications::backdrop {
+    display: none;
+}
+
+.toast-header {
+    background: #f8f9fa;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.toast-body {
+    padding: 15px;
+}
+
+.close-btn {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
